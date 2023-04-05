@@ -1,5 +1,5 @@
-# Food Mobile App UI using Flutter
-* [Full Preview Video](https://youtu.be/ORCIScI900I)
+# FoodieMart Mobile App UI using Flutter with GetX
+
 ## ScreenShots
 ![Untitled-2](https://user-images.githubusercontent.com/91388754/164625732-5e868868-6a98-4ef3-8207-9cfd402bb968.png)
 ![Untitled-1](https://user-images.githubusercontent.com/91388754/164625556-95677255-70f1-4c8a-91d8-001f414f1726.png)
@@ -12,6 +12,4 @@
 * [Part 5](https://www.instagram.com/tv/Ccm1Q1WDwCv/?utm_source=ig_web_copy_link)
 
 ## Links
-* [My Socials](https://znap.link/CodeWithFlexz)
-* [Youtube channel](https://www.youtube.com/channel/UCLVrYXt3SL9rT-IcDmgU9Wg)
-* [Instagram](https://instagram.com/codewithflexz)
+* [My LinkedIn](https://linkedIn.com/kfaisal10)
