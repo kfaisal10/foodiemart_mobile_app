@@ -1,6 +1,14 @@
 # FoodieMart Mobile App UI using Flutter with GetX
 
 ## ScreenShots
+<table>
+  <tr>
+    <td><img src="https://github.com/kfaisal10/screenshoot/blob/main/Home%20Menu.png"></td>
+    <td><img src="https://github.com/kfaisal10/screenshoot/blob/main/cart%20menu.png"></td>
+    <td><img src="https://github.com/kfaisal10/screenshoot/blob/main/detail%20foods.png"></td>
+  </tr>
+</table>
+
 ![Untitled-1](https://github.com/kfaisal10/screenshoot/blob/main/Home%20Menu.png) [Untitled-1](https://github.com/kfaisal10/screenshoot/blob/main/cart%20menu.png)[Untitled-1](https://github.com/kfaisal10/screenshoot/blob/main/detail%20foods.png)
 ![Untitled-1](https://github.com/kfaisal10/screenshoot/blob/main/navigator%20menu.png)
 ![Untitled-1](https://github.com/kfaisal10/screenshoot/blob/main/Home%20Menu.png)
