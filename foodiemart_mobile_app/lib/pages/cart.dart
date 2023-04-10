@@ -2,16 +2,15 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:lottie/lottie.dart';
 //
 import '../controllers/food_controller.dart';
 import '../controllers/navigator_controllers.dart';
 import '../controllers/switch_controller.dart';
-import '../controllers/wallet_controller.dart';
+import '../controllers/cart_controller.dart';
 import '../utils/constants.dart';
 
-class WalletPage extends StatelessWidget {
-  const WalletPage({Key? key}) : super(key: key);
+class CartPage extends StatelessWidget {
+  const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,22 +37,25 @@ class MainItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _walletController = Get.find<WalletController>();
+    var _cartController = Get.find<CartController>();
     var _controller = Get.find<SwitchController>();
     return Column(
       children: [
-        GetBuilder<WalletController>(builder: (context) {
-          if (_walletController.walletFood.isEmpty) {
-            return Expanded(
+        GetBuilder<CartController>(builder: (context) {
+          if (_cartController.cartFood.isEmpty) {
+            return SizedBox(
+              width: w,
+              height: h,
                 child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  width: w / 1.01,
-                  height: h / 4,
-                  child: Lottie.network(
-                      "https://assets8.lottiefiles.com/packages/lf20_ZZ7nur.json",
-                      animate: true),
+                  child: Image.asset(
+                  "assets/images/not_found.png",
+                  width: 200.0,
+                  height: 200.0,
+                  fit: BoxFit.cover,
+                  ),
                 ),
                 const SizedBox(
                   height: 25,
@@ -83,7 +85,7 @@ class MainItem extends StatelessWidget {
                               color: Colors.black),
                           child: Center(
                               child: Text(
-                            "Total Item : ${_walletController.walletFood.length}",
+                            "Total Item : ${_cartController.cartFood.length}",
                             style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -98,7 +100,7 @@ class MainItem extends StatelessWidget {
                               color: Colors.red),
                           child: Center(
                               child: Text(
-                            "Total Price : \$${_walletController.totalAmount().toStringAsFixed(2)}",
+                            "Total Price : Rp${_cartController.totalAmount().toStringAsFixed(3)}",
                             style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -112,7 +114,7 @@ class MainItem extends StatelessWidget {
                   height: h,
                   child: ListView.builder(
                     shrinkWrap: true,
-                    itemCount: _walletController.walletFood.length,
+                    itemCount: _cartController.cartFood.length,
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       return SizedBox(
@@ -147,21 +149,18 @@ class MainItem extends StatelessWidget {
                             child: FadeInLeft(
                               delay: Duration(
                                   milliseconds: (index / 0.5 * 200).toInt()),
-                              child: Spin(
-                                delay: Duration(
-                                    milliseconds: (index / 0.5 * 250).toInt()),
-                                child: SizedBox(
+                              child: SizedBox(
                                   width: w / 2.5,
                                   height: h / 5,
                                   child: Hero(
-                                    tag: _walletController.walletFood[index].id,
+                                    tag: _cartController.cartFood[index].id,
                                     child: Image.asset(
-                                      _walletController.walletFood[index].img,
+                                      _cartController.cartFood[index].img,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
-                              ),
+                              
                             ),
                           ),
                           Positioned(
@@ -171,7 +170,7 @@ class MainItem extends StatelessWidget {
                               delay: Duration(
                                   milliseconds: (index / 0.5 * 300).toInt()),
                               child: Text(
-                                _walletController.walletFood[index].title,
+                                _cartController.cartFood[index].title,
                                 style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -186,7 +185,7 @@ class MainItem extends StatelessWidget {
                               delay: Duration(
                                   milliseconds: (index / 0.5 * 400).toInt()),
                               child: Text(
-                                "\$${_walletController.walletFood[index].price.toStringAsFixed(2)}",
+                                "Rp${_cartController.cartFood[index].price.toStringAsFixed(3)}",
                                 style: const TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -265,11 +264,7 @@ class MainItem extends StatelessWidget {
                               child: FadeInRight(
                                 delay: Duration(
                                     milliseconds: (index / 0.5 * 700).toInt()),
-                                child: Spin(
-                                  delay: Duration(
-                                      milliseconds:
-                                          (index / 0.5 * 800).toInt()),
-                                  child: IconButton(
+                                child: IconButton(
                                       onPressed: () {
                                         Get.defaultDialog(
                                             barrierDismissible: false,
@@ -281,7 +276,7 @@ class MainItem extends StatelessWidget {
                                             confirmTextColor: Colors.white,
                                             onCancel: () {},
                                             onConfirm: () {
-                                              _walletController
+                                              _cartController
                                                   .removeSingleItem(index);
                                               Get.back();
                                             });
@@ -290,7 +285,7 @@ class MainItem extends StatelessWidget {
                                         LineIcons.times,
                                         color: Colors.red,
                                       )),
-                                ),
+                                
                               ))
                         ]),
                       );
@@ -328,7 +323,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(55);
   @override
   Widget build(BuildContext context) {
-    var _walletController = Get.find<WalletController>();
+    var _cartController = Get.find<CartController>();
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.transparent,
@@ -343,10 +338,10 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
         },
       ),
       actions: [
-        GetBuilder<WalletController>(builder: (context) {
+        GetBuilder<CartController>(builder: (context) {
           return Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: _walletController.walletFood.isNotEmpty
+            child: _cartController.cartFood.isNotEmpty
                 ? IconButton(
                     onPressed: () {
                       Get.defaultDialog(
@@ -359,7 +354,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
                           confirmTextColor: Colors.white,
                           onCancel: () {},
                           onConfirm: () {
-                            _walletController.removeAllItems();
+                            _cartController.removeAllItems();
                             Get.back();
                           });
                     },

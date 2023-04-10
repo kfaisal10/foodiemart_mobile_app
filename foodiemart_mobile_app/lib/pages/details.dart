@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 //
 import '../controllers/switch_controller.dart';
-import '../controllers/wallet_controller.dart';
+import '../controllers/cart_controller.dart';
 import '../utils/constants.dart';
 import '../controllers/food_controller.dart';
 
@@ -64,7 +64,7 @@ class BottomPrice extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                "\$${Get.find<FoodController>().salads[_controller.currentSaladIndex].price.toStringAsFixed(2)}",
+                "Rp${Get.find<FoodController>().salads[_controller.currentSaladIndex].price.toStringAsFixed(3)}",
                 style: const TextStyle(
                     color: Colors.black,
                     fontSize: 25,
@@ -166,7 +166,7 @@ class MyFAB extends StatelessWidget {
       child: FloatingActionButton(
         backgroundColor: Colors.black,
         onPressed: () {
-          Get.find<WalletController>().add(
+          Get.find<CartController>().add(
             id: _foodController.salads[_controller.currentSaladIndex].id,
             img: _foodController.salads[_controller.currentSaladIndex].img,
             title: _foodController.salads[_controller.currentSaladIndex].title,

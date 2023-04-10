@@ -8,7 +8,7 @@ import 'package:line_icons/line_icons.dart';
 ///
 import '../pages/setting.dart';
 import '../controllers/navigator_controllers.dart';
-import '../controllers/wallet_controller.dart';
+import '../controllers/cart_controller.dart';
 import '../utils/constants.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -160,7 +160,7 @@ class PurpleSection extends StatelessWidget {
             ComponentsOfPurpleSection(
               title: Text(
                 Get.find<DiscountController>()
-                    .calDiscount(Get.find<WalletController>().totalAmount()),
+                    .calDiscount(Get.find<CartController>().totalAmount()),
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -170,7 +170,7 @@ class PurpleSection extends StatelessWidget {
             ),
             ComponentsOfPurpleSection(
               title: Text(
-                "${Get.find<WalletController>().walletFood.length}",
+                "${Get.find<CartController>().cartFood.length}",
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -180,7 +180,7 @@ class PurpleSection extends StatelessWidget {
             ),
             ComponentsOfPurpleSection(
               title: Text(
-                "\$${Get.find<WalletController>().totalAmount().toInt()}",
+                "Rp${Get.find<CartController>().totalAmount().toInt().toStringAsFixed(3)}",
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

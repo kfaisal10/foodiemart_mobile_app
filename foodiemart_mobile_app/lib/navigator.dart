@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
-
 //
 import '../pages/landscape_mode.dart';
 import '../pages/home.dart';
 import '../pages/profile.dart';
-import '../pages/wallet.dart';
+import 'pages/cart.dart';
 import '../controllers/navigator_controllers.dart';
 
 class MainNavigator extends StatelessWidget {
@@ -16,7 +15,7 @@ class MainNavigator extends StatelessWidget {
   // Screens
   final List<Widget> screens = const [
     HomePage(),
-    WalletPage(),
+    CartPage(),
     ProfilePage(),
   ];
 
@@ -65,7 +64,7 @@ class MainNavigator extends StatelessWidget {
                         ),
                       ),
 
-                      /// Wallet
+                      /// Cart
                       CustomNavigationBarItem(
                         icon: const Icon(
                           LineIcons.shoppingCart,

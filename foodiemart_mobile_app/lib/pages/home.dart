@@ -4,10 +4,8 @@ import 'package:get/get.dart';
 //
 import '../controllers/navigator_controllers.dart';
 import '../controllers/food_controller.dart';
-import '../controllers/wallet_controller.dart';
 import '../controllers/switch_controller.dart';
 import '../pages/details.dart';
-import '../controllers/tabBar_controller.dart';
 import '../utils/constants.dart';
 
 class HomePage extends StatelessWidget {
@@ -141,40 +139,16 @@ class BottomSaladGridView extends StatelessWidget {
                       
                     ),
                     Positioned(
-                      left: 55,
-                      top: 185,
+                      left: 40,
+                      top: 170,
                       child: Text(
-                          "\$${_foodController.salads[index].price.toStringAsFixed(2)}",
+                          "Rp${_foodController.salads[index].price.toStringAsFixed(3)}",
                           style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 18),
                         ),
-                      
                     ),
-                    Positioned(
-                      right: 5,
-                      bottom: 7,
-                      child: CircleAvatar(
-                          backgroundColor: Colors.black,
-                          child: IconButton(
-                              onPressed: () {
-                                Get.find<WalletController>().add(
-                                  id: _foodController.salads[index].id,
-                                  img: _foodController.salads[index].img,
-                                  title: _foodController.salads[index].title,
-                                  subtitle:
-                                      _foodController.salads[index].subtitle,
-                                  price: _foodController.salads[index].price,
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.add,
-                                color: unSelectedColor,
-                              )),
-                        ),
-                      
-                    )
                   ],
                 ),
               ),
@@ -267,7 +241,7 @@ class MiddleSaladsPageView extends StatelessWidget {
                       left: 175,
                       top: 95,
                       child: Text(
-                          "\$${_foodController.salads[index].price.toStringAsFixed(2)}",
+                          "Rp${_foodController.salads[index].price.toStringAsFixed(3)}",
                           style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -275,100 +249,11 @@ class MiddleSaladsPageView extends StatelessWidget {
                         ),
                       
                     ),
-                    Positioned(
-                      right: 5,
-                      bottom: 10,
-                      child: CircleAvatar(
-                          backgroundColor: Colors.black,
-                          child: IconButton(
-                              onPressed: () {
-                                Get.find<WalletController>().add(
-                                  id: _foodController.salads[index].id,
-                                  img: _foodController.salads[index].img,
-                                  title: _foodController.salads[index].title,
-                                  subtitle:
-                                      _foodController.salads[index].subtitle,
-                                  price: _foodController.salads[index].price,
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.add,
-                                color: unSelectedColor,
-                              )),
-                        ),
-                      
-                    )
+                   
                   ]),
                 ),
               );
             }));
-  }
-}
-
-/// TabBar Widget Components
-class TabBar extends StatelessWidget {
-  TabBar({
-    Key? key,
-  }) : super(key: key);
-
-  final List<String> tabNames = [
-    "Salads",
-    "Soups",
-    "Grilled",
-    "Fish",
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    var _controller = Get.find<TabBarController>();
-    return Container(
-        margin: const EdgeInsets.only(top: 10, bottom: 5),
-        width: w,
-        height: h / 15,
-        child: Row(
-          children: [
-            SizedBox(
-              width: w / 1.25,
-              height: double.infinity,
-              child: ListView.builder(
-                  itemCount: 4,
-                  physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (ctx, index) {
-                    return Obx(() {
-                      return GestureDetector(
-                        onTap: () {
-                          _controller.currentIndex.value = index;
-                        },
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          width: w / 4,
-                          height: double.infinity,
-                          margin: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                            color: _controller.currentIndex.value == index
-                                ? Colors.black
-                                : unSelectedColor,
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: Center(
-                              child: Text(
-                            tabNames[index],
-                            style: TextStyle(
-                                color: _controller.currentIndex.value == index
-                                    ? const Color.fromARGB(255, 234, 234, 234)
-                                    : Colors.black,
-                                fontSize: 16),
-                          )),
-                        ),
-                      );
-                    });
-                  }),
-            ),
-            
-          ],
-        ),
-      );
   }
 }
 
@@ -387,7 +272,7 @@ class TopTextWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             Text(
-              "FoodieMart",
+              "FoodMarket",
               style: TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.w800,

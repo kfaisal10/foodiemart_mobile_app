@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 //
 import '../model/salads_model.dart';
 
-class WalletController extends GetxController {
-  List<SaladModel> walletFood = [];
+class CartController extends GetxController {
+  List<SaladModel> cartFood = [];
 
-  // Method for adding item into walletFood List
+  // Method for adding item into cartFood List
   void add({
     required id,
     required img,
@@ -14,9 +14,9 @@ class WalletController extends GetxController {
     required subtitle,
     required price,
   }) {
-    var contain = walletFood.where((element) => element.id == id);
+    var contain = cartFood.where((element) => element.id == id);
     if (contain.isEmpty) {
-      walletFood.add(SaladModel(
+      cartFood.add(SaladModel(
           id: id,
           img: img,
           title: title,
@@ -25,7 +25,7 @@ class WalletController extends GetxController {
           price: price,
           description: "",
           quantity: 0));
-      Get.snackbar("Notice!", "Added To Your Wallet",
+      Get.snackbar("Notice!", "Added To Your Cart",
           snackPosition: SnackPosition.TOP,
           duration: const Duration(milliseconds: 1600),
           isDismissible: true,
@@ -40,25 +40,26 @@ class WalletController extends GetxController {
     }
   }
 
-  // Method for removing all items from the walletFood List
+  // Method for removing all items from the CartFood List
   void removeAllItems() {
-    walletFood = [];
+    cartFood = [];
     update();
   }
 
-  // Method for removing single item from walletFood List
+  // Method for removing single item from CartFood List
   void removeSingleItem(int index) {
-    walletFood.removeAt(index);
+    cartFood.removeAt(index);
     update();
   }
 
   // Method For Calculating Total Price of foods
   double totalAmount() {
     var sumPrice = 0.0;
-    for (SaladModel walletFood in walletFood) {
-      sumPrice = sumPrice + walletFood.price; 
+    for (SaladModel cartFood in cartFood) {
+      sumPrice = sumPrice + cartFood.price; 
     }
     return sumPrice;
     
   }
+  
 }

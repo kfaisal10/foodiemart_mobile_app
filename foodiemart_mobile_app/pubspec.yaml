@@ -39,6 +39,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/not_found.png
 
   # fonts:
   #   - family: Schyler
