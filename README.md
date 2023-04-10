@@ -1,4 +1,4 @@
-# FoodieMart Mobile App UI using Flutter with GetX
+# FoodMarket Mobile App UI using Flutter with GetX
 
 ## ScreenShots
 <table>
