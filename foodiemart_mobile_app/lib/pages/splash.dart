@@ -41,30 +41,10 @@ class SplashPage extends StatelessWidget {
                     height: h / 10,
                     child: const Center(
                       child: Text(
-                        "Food In Two",
+                        "FoodMarket",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 60,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 130,
-                left: 60,
-                child: FadeInUp(
-                  delay: const Duration(milliseconds: 700),
-                  child: SizedBox(
-                    width: w / 1.5,
-                    height: h / 10,
-                    child: const Center(
-                      child: Text(
-                        "Food Delivery App",
-                        style: TextStyle(
-                            color: Colors.white70,
-                            fontSize: 20,
+                            fontSize: 40,
                             fontWeight: FontWeight.w400),
                       ),
                     ),
@@ -76,14 +56,11 @@ class SplashPage extends StatelessWidget {
                 left: 75,
                 child: FadeInUp(
                   delay: const Duration(milliseconds: 900),
-                  child: Spin(
-                    delay: const Duration(milliseconds: 1000),
                     child: SizedBox(
                       width: w / 1.6,
                       height: h / 3.3,
                       child: Center(child: Image.asset('assets/images/1.png')),
                     ),
-                  ),
                 ),
               ),
               Positioned(
@@ -96,7 +73,7 @@ class SplashPage extends StatelessWidget {
                     height: h / 19,
                     child: const Center(
                       child: Text(
-                        "Wait Moment Beautiful...",
+                        "Please Wait...",
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
@@ -115,7 +92,7 @@ class SplashPage extends StatelessWidget {
                     width: w / 5,
                     height: h / 15,
                     child: Center(
-                        child: SpinKitFoldingCube(
+                        child: SpinKitFadingCircle(
                       size: 35,
                       itemBuilder: (BuildContext context, int index) {
                         return const DecoratedBox(

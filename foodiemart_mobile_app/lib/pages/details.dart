@@ -229,11 +229,12 @@ class HeaderWidget extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {
                       Get.find<FoodController>()
-                          .addQ(_controller.currentSaladIndex);
+                          .removeQ(_controller.currentSaladIndex);
                     },
                     icon: const Icon(
-                      Icons.add,
+                      Icons.remove,
                       size: 10,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -258,10 +259,10 @@ class HeaderWidget extends StatelessWidget {
                     child: IconButton(
                       onPressed: () {
                         Get.find<FoodController>()
-                            .removeQ(_controller.currentSaladIndex);
+                            .addQ(_controller.currentSaladIndex);
                       },
                       icon: const Icon(
-                        Icons.remove,
+                        Icons.add,
                         size: 15,
                         color: Colors.white,
                       ),

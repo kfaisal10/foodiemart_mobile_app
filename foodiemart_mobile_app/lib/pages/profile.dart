@@ -30,7 +30,7 @@ class ProfilePage extends StatelessWidget {
                 width: w,
                 height: h / 1.6,
                 child: Stack(children: [
-                  const PurpleSection(),
+                  const OrangeSection(),
                   BottomSection(),
                 ]),
               ),
@@ -137,8 +137,8 @@ class BottomSection extends StatelessWidget {
 }
 
 ///Purple Section Widget Components
-class PurpleSection extends StatelessWidget {
-  const PurpleSection({
+class OrangeSection extends StatelessWidget {
+  const OrangeSection({
     Key? key,
   }) : super(key: key);
 
@@ -150,7 +150,7 @@ class PurpleSection extends StatelessWidget {
         width: w,
         height: h / 5,
         decoration: const BoxDecoration(
-            color: Color(0xff6952ED),
+            color: Colors.orange,
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(30), topLeft: Radius.circular(30))),
         child: Row(
@@ -180,11 +180,11 @@ class PurpleSection extends StatelessWidget {
             ),
             ComponentsOfPurpleSection(
               title: Text(
-                "Rp${Get.find<CartController>().totalAmount().toInt().toStringAsFixed(3)}",
+                "Rp\n${Get.find<CartController>().totalAmount().toInt().toStringAsFixed(3)}",
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 35),
+                    fontSize: 20),
               ),
               subtitle: "Total price",
             ),

@@ -1,7 +1,6 @@
 import 'package:food_mobile_app_ui/navigator.dart';
 import 'package:get/get.dart';
 //
-import 'package:food_mobile_app_ui/pages/introduction.dart';
 import 'package:get_storage/get_storage.dart';
 
 class SplashController extends GetxController {
@@ -19,7 +18,7 @@ class SplashController extends GetxController {
     Future.delayed(
       const Duration(seconds: 8),
       () {
-        Get.offAll(() => showIntro == true?  const IntroductionPage() : const MainNavigator(),
+        Get.offAll(() => showIntro == true?  const MainNavigator() : const MainNavigator(),
             transition: Transition.cupertino);
       },
     );
